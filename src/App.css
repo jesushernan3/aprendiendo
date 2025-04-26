@@ -1,1 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-primary: "Roboto", sans-serif;
+  --color-primary: "#f7ba34";
+  --color-secondary: "#69a79c";
+  --color-light: "#f7f7f7";
+  --color-dark: "#33333";
+  --color-dark2: "999999";
+
+
+}
+
+@layer components {
+  .container {
+    @apply p-2 mx-auto
+  }
+  .primary-btn {
+    @apply inline-block bg-[#f7ba34] text-white font-semibold rounded-lg hover:bg-secondary duration-200 shadow-[0px_10px_8px_-7px_#ffd978] hover:shadow-[0px_10px_8px_-7px_#69a79c] py-2 px-6
+  }
+}
