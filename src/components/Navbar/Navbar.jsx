@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBeer } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import { menuItems } from "./menuItems";
+import { MenuItems } from "./menuItems";
 
 // const NavbarMenu = [
 //   {
@@ -31,43 +31,44 @@ import { menuItems } from "./menuItems";
 //   },
 // ];
 // console.log({ NavbarMenu });
+function SubMenu({ item }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <li
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <a href={item.path}>
+        {item.title}
+        {item.submenu && isOpen && (
+          <ul className="absolute bg-amber-300 p-1 m-1 w-[120px]">
+            {item.submenu.map((subItem, subIndex) => (
+              <li className="underline-offset-auto bg-amber-200" key={subIndex}>
+                <SubMenu item={subItem} key={subIndex} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </a>
+    </li>
+  );
+}
+
 const Navbar = () => {
   return (
     <div className="container flex justify-between items-center">
       {/* Sección del Logo */}
       <div>
-        <h1>Aprendiendo</h1>
+        <a href="/">
+          <h1>Aprendiendo</h1>
+        </a>
       </div>
       {/* Sección del Menu */}
       <div className="hidden lg:block">
-        <ul className="flex items-center gap-3">
-          {menuItems.map((item, index) => (
-            <div key={item.index}>
-              {item.title}
-              {item.submenu && (
-                <div>
-                  {item.submenu.map((subItem, subIndex) => (
-                    <li key={subIndex}>{subItem.title}</li>
-                  ))}
-                </div>
-              )}
-              {/* {item.submenu && (
-                <div>
-                  {item.submenu.map((subItem, subIndex) => (
-                    <li key={subIndex}>{subItem.label}</li>
-                  ))}
-                </div>
-              )} */}
-            </div>
-            // <li>
-            //   <a
-            //     href="#"
-            //     className="inline-block py-2 px-3 hover:text-secondary relative group"
-            //   >
-            //     <div className="w-2 h-2 bg-secondary absolute mt-2 rounded-full left-1/2 -translate-x-1/2 top-1/2 bottom-0 group-hover:block hidden"></div>
-            //     {item.label}
-            //   </a>
-            // </li>
+        <ul className="flex items-center gap-3 relative">
+          {MenuItems.map((item, index) => (
+            <SubMenu item={item} key={index} />
           ))}
           <button className="primary-btn">Iniciar sesion</button>
         </ul>

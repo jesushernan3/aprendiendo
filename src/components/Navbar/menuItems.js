@@ -1,46 +1,39 @@
-export const menuItems = [
+export const MenuItems = [
   {
-    title: "Home",
-  },
-  {
-    title: "Services",
+    title: "Bases",
+    path: "#",
     submenu: [
-      {
-        title: "web design",
-      },
-      {
-        title: "web development",
-        submenu: [
-          {
-            title: "Frontend",
-          },
-          {
-            title: "Backend",
-            submenu: [
-              {
-                title: "NodeJS",
-              },
-              {
-                title: "PHP",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        title: "SEO",
-      },
+      { title: "html", path: "#" },
+      { title: "css", path: "#" },
+      { title: "js", path: "#" },
+      { title: "php", path: "#" },
     ],
   },
   {
-    title: "About",
+    title: "Frameworks",
+    path: "#",
     submenu: [
-      {
-        title: "Who we are",
-      },
-      {
-        title: "Our values",
-      },
+      { title: "React JS", path: "#" },
+      { title: "Vue JS", path: "#" },
+      { title: "Tailwindcss", path: "#" },
     ],
   },
+  {
+    title: "Herramientas",
+    path: "#",
+    submenu: [
+      { title: "Vs Code", path: "#" },
+      { title: "Git Bash", path: "#" },
+    ],
+  },
+  {
+    title: "Diseño",
+    path: "#",
+    submenu: [
+      { title: "illustrator", path: "#" },
+      { title: "canva", path: "#" },
+      { title: "sketchup", path: "#" },
+    ],
+  },
+  { title: "notas", path: "#" },
 ];
