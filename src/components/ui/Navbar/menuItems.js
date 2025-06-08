@@ -3,10 +3,10 @@ export const MenuItems = [
     title: "Bases",
     path: "#",
     submenu: [
-      { title: "html", path: "#" },
-      { title: "css", path: "#" },
-      { title: "js", path: "#" },
-      { title: "php", path: "#" },
+      { title: "html", path: "html" },
+      { title: "css", path: "css" },
+      { title: "js", path: "js" },
+      { title: "php", path: "php" },
     ],
   },
   {
